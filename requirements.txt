@@ -1,0 +1,6 @@
+numpy==1.19.1
+matplotlib==3.3.0
+scikit-learn==0.23.2
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.6.0+cpu
