@@ -4,7 +4,7 @@ Disjunctive Normal Network (DNNs) is a special type of Neural Network used for b
 [https://arxiv.org/pdf/1412.8534.pdf](https://arxiv.org/pdf/1412.8534.pdf)
 
 # Motivation
-The initial purpose of this project was an attempt to create a model with the simplicity and interpretability of Decision Trees (DTs) combined with the differentiability and parameter tuning through backpropagation of Neural Networks.
+The initial purpose of this project was an attempt to create a model with the **simplicity** and **interpretability** of Decision Trees (DTs) combined with the differentiability and parameter tuning through backpropagation of Neural Networks.
 
 Initial thoughts included representing the decision tree split function as a sigmoid, combining half-spaces to form a polytope and then combining multiple polytopes to form the decision function.
 
