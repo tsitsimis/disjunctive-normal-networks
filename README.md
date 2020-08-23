@@ -25,6 +25,34 @@ For the tree of the top picture the associated boolean function (1 for positive 
 
 This boolean function is written in [Disjunctive normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form) meaning that it is a union of intersections or an OR of ANDs (in terms of logic gates).
 
+Here is when Disjunctive Normal Networks come into play to represent such boolean functions.
+
+### Half-Spaces and Polytopes
+A polytope is the intersection of M half-spaces, where a half-space <img src="https://render.githubusercontent.com/render/math?math=H_i"> is defined as the sub-space where it holds <img src="https://render.githubusercontent.com/render/math?math=h_i(x) > 0">
+
+<img src="./assets/polytope.png" height=200/>
+
+Many such polytopes can be used as covers and optimized to enclose all positive samples in a binary classification problem:
+
+<img src="./assets/polytopes.png" height=200/>
+
+### Training
+DNNs define such polytopes and optimize their position and form with backpropagation
+
+A half-space can be expressed as a sigmoid function of a linear combination of the feature space
+<img src="https://render.githubusercontent.com/render/math?math=h(x) = \sigma(w^Tx + a)">
+
+The intersection of M half-spaces is their product (boolean AND) and form a polytope <img src="https://render.githubusercontent.com/render/math?math=P_i">
+
+<img src="https://render.githubusercontent.com/render/math?math=P_i = \displaystyle \product_{j=1}^{M} h_{ij}(x)">
+
+Finally, the union of N polytopes form the final decision function <img src="https://render.githubusercontent.com/render/math?math=f(x)">. To calculate the union we could just add all the <img src="https://render.githubusercontent.com/render/math?math=P_i(x)"> together but in overlapping areas the result would be greater than 1. To tackle this, using the DeMorgan rule <img src="https://render.githubusercontent.com/render/math?math=A \cup B = (A^\prime \cap B^\prime)^\prime"> the sum can be transformed to the product
+
+<img src="https://render.githubusercontent.com/render/math?math=f(x) = 1 - \displaystyle \product_{i=1}^{n}(\product_{j=1}^{M} 1 - h_{ij}(x))">
+
+In the above expression we replace boolean negation of a variable <img src="https://render.githubusercontent.com/render/math?math=A"> with <img src="https://render.githubusercontent.com/render/math?math=1-A"> and the boolean AND with a product. 
+
+### Advantages
 A DNN expresses such a boolean function in Disjunctive normal form. The main advantages of a DNN over a decision tree are
 - Instead of hyercubes it uses polytopes which are high-dimensional polygons
 - Is trained with backpropagation and can be thus incorporated in any neural network topology as final or intermediate step
