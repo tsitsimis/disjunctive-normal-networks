@@ -46,11 +46,13 @@ The intersection of M half-spaces is their product (boolean AND) and form a poly
 
 <img src="https://render.githubusercontent.com/render/math?math=P_i = \displaystyle \product_{j=1}^{M} h_{ij}(x)">
 
-Finally, the union of N polytopes form the final decision function <img src="https://render.githubusercontent.com/render/math?math=f(x)">. To calculate the union we could just add all the <img src="https://render.githubusercontent.com/render/math?math=P_i(x)"> together but in overlapping areas the result would be greater than 1. To tackle this, using the DeMorgan rule <img src="https://render.githubusercontent.com/render/math?math=A \cup B = (A^\prime \cap B^\prime)^\prime"> the sum can be transformed to the product
+Finally, the union of N polytopes forms the final decision function <img src="https://render.githubusercontent.com/render/math?math=f(x)">. To calculate the union we could just add all the <img src="https://render.githubusercontent.com/render/math?math=P_i(x)"> together but in overlapping areas the result would be greater than 1. To tackle this, using the DeMorgan rule <img src="https://render.githubusercontent.com/render/math?math=A \cup B = (A^\prime \cap B^\prime)^\prime"> the sum can be transformed to the product
 
 <img src="https://render.githubusercontent.com/render/math?math=f(x) = 1 - \displaystyle \product_{i=1}^{n}(\product_{j=1}^{M} 1 - h_{ij}(x))">
 
 In the above expression we replace boolean negation of a variable <img src="https://render.githubusercontent.com/render/math?math=A"> with <img src="https://render.githubusercontent.com/render/math?math=1-A"> and the boolean AND with a product. 
+
+The function <img src="https://render.githubusercontent.com/render/math?math=f(x)"> is then optimized with gradient descent.
 
 ### Advantages
 A DNN expresses such a boolean function in Disjunctive normal form. The main advantages of a DNN over a decision tree are
