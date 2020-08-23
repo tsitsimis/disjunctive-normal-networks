@@ -23,7 +23,7 @@ For the tree of the top picture the associated boolean function (1 for positive 
 
 <img src="https://render.githubusercontent.com/render/math?math=Y = ((x_1 < a_1) \cap (x_2 < a_2)) \cup ((x_1 < a_1) \cap (x_2 < a_2)^\prime \cap (x_3 < a_4)^\prime) \cup ((x_1 < a_1)^\prime \cap (x_4 < a_4)^\prime \cap (x_5 < a_5))">
 
-This boolean function is written in [Disjunctive normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form) meaning that it is a union of intersections or an OR of ANDs (in terms of logic gates).
+This boolean function is written in [Disjunctive normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form) meaning that it is a union of intersections or an "OR of ANDs" (in terms of logic gates).
 
 A DNN expresses such a boolean function in Disjunctive normal form. The main advantages of a DNN over a decision tree are
 - Instead of hyercubes it uses polytopes which are high-dimensional polygons
