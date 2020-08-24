@@ -40,7 +40,7 @@ Many such polytopes can be used as covers and optimized to enclose all positive 
 DNNs define such polytopes and optimize their position and form with backpropagation
 
 A half-space can be expressed as a sigmoid function of a linear combination of the feature space
-<img src="https://render.githubusercontent.com/render/math?math=h(x) = \sigma(w^Tx %2B a) \ge 0">
+<img src="https://render.githubusercontent.com/render/math?math=h(x) = \sigma(w^Tx %2B a)">
 
 The intersection of M half-spaces is their product (boolean AND) and form a polytope <img src="https://render.githubusercontent.com/render/math?math=P_i">
 
