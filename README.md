@@ -28,7 +28,7 @@ This boolean function is written in [Disjunctive normal form](https://en.wikiped
 Here is when Disjunctive Normal Networks come into play to represent such boolean functions.
 
 ### Half-Spaces and Polytopes
-A polytope is the intersection of M half-spaces, where a half-space <img src="https://render.githubusercontent.com/render/math?math=H_i"> is defined as the sub-space where it holds <img src="https://render.githubusercontent.com/render/math?math=h_i(x) > 0">
+A polytope is the generalization of a polygon and polyhedron in higher dimensions. It can be seen as the intersection of M half-spaces, where a half-space <img src="https://render.githubusercontent.com/render/math?math=H_i"> is defined as the sub-space where it holds <img src="https://render.githubusercontent.com/render/math?math=h_i(x) > 0">
 
 <img src="./assets/polytope.png" height=200/>
 
