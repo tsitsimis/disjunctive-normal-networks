@@ -6,7 +6,6 @@ def readme():
         return readme_file.read()
 
 
-# This call to setup() does all the work
 setup(
     name="disjunctive-nn",
     version="0.1.0",
