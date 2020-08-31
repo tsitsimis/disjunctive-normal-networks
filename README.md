@@ -4,11 +4,11 @@ Disjunctive Normal Network (DNN) is a special type of Neural Network used for bi
 Paper: [https://arxiv.org/pdf/1412.8534.pdf](https://arxiv.org/pdf/1412.8534.pdf)
 
 # Motivation
-The initial purpose of this project was an attempt to create a model with the **simplicity** and **interpretability** of Decision Trees (DTs) combined with the differentiability and parameter tuning through backpropagation of Neural Networks.
+The purpose of this project is to explore models with the **simplicity** and **interpretability** of Decision Trees (DTs) combined with the differentiability and parameter tuning through backpropagation of Neural Networks.
 
-Initial thoughts included representing the decision tree split function as a sigmoid, combining half-spaces to form a polytope and then combining multiple polytopes to form the decision function.
+Representing the decision split function as a sigmoid and forming convex hyper-cubes or polytopes to form the decision function are key to build a model with tree-like characteristics.
 
-After searching through the literature it turned out that all of these concepts were present in multiple previous works, the most similar being the Disjunctive Normal Networks paper.
+A search in the literature revealed that these concepts were present in multiple previous works, the most similar being the Disjunctive Normal Networks paper.
 
 # Model
 A Decision Tree segments the space in hypercubes by drawing axis-aligned lines in the feature space. These hyperboxes enclose the points to form the decision function of the tree
