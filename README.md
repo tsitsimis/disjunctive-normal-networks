@@ -1,3 +1,8 @@
+[![PyPI version shields.io](https://img.shields.io/pypi/v/disjunctive-nn.svg)](https://pypi.python.org/pypi/disjunctive-nn)
+[![PyPI license](https://img.shields.io/pypi/l/disjunctive-nn.svg)](https://pypi.python.org/pypi/disjunctive-nn/)
+
+
+
 # Disjunctive Normal Networks
 Disjunctive Normal Network (DNN) is a special type of Neural Network used for binary classification. It uses intersected convex polytopes that cover the feature space of samples belonging the positive class. In 2D it can be seen as multiple convex polygons spread on the plane enclosing all positive samples while leaving negative samples outside. 
 
