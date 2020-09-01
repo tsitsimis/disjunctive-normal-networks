@@ -43,8 +43,7 @@ Alternatively download the package, install requirements, and manually run the i
 wget https://github.com/tsitsimis/neural-disjunctive-normal-networks/archive/master.zip
 unzip master.zip
 rm master.zip
-cd 
-neural-disjunctive-normal-networks-master
+cd neural-disjunctive-normal-networks-master
 
 pip install -r requirements.txt
 
