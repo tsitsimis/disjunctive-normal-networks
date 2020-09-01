@@ -1,6 +1,5 @@
 [![PyPI version shields.io](https://img.shields.io/pypi/v/disjunctive-nn.svg)](https://pypi.python.org/pypi/disjunctive-nn)
 [![PyPI license](https://img.shields.io/pypi/l/disjunctive-nn.svg)](https://pypi.python.org/pypi/disjunctive-nn/)
-
 [![PyPI license](https://travis-ci.com/tsitsimis/disjunctive-normal-networks.svg?branch=master)](https://travis-ci.com/tsitsimis/disjunctive-normal-networks.svg?branch=master)
 
 
