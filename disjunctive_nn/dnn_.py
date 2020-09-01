@@ -94,7 +94,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         return torch.stack([1 - result, result]).T
     
     
-    def fit(self, X, y, epochs=1000, lr=0.01, batch_size=100, verbose=True):
+    def fit(self, X, y, epochs=1000, lr=0.01, batch_size=100, verbose=False):
         """
         Fit Neural Hyoercube Network with Adam optimizer and Cross-Entropy loss
 
