@@ -2,7 +2,6 @@ from functools import reduce
 
 import numpy as np
 import torch
-from torch.utils.data import Dataset, DataLoader
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
 from sklearn.utils.multiclass import unique_labels
@@ -26,10 +25,10 @@ class Polytope():
     def __init__(self, dim: int, m: int):
         self.dim = dim
         self.m = m
-        
+
         self.cuts = torch.rand([1, m], requires_grad=True)
         self.w = torch.rand([dim, m], requires_grad=True)
-        
+
         self.params = [self.cuts, self.w]
 
     def value(self, X):
@@ -40,7 +39,6 @@ class Polytope():
         polytope = sigmoid(polytope)
         polytope = torch.prod(polytope, axis=1)  # intersection of half-spaces
         return polytope
-
 
 
 class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
@@ -71,8 +69,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         self.m = m
 
         self.polytopes = None
-        
-    
+
     def forward(self, X):
         """
         Implementation of network's forward pass
@@ -92,11 +89,10 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         result = 1.0
         for cube in self.polytopes:
             result *= 1.0 - cube.value(X)
-        
+
         result = 1 - result
         return torch.stack([1 - result, result]).T
-    
-    
+
     def fit(self, X, y, epochs=1000, lr=0.01, batch_size=100, verbose=False):
         """
         Fit Neural Hyoercube Network with Adam optimizer and Cross-Entropy loss
@@ -107,7 +103,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
             The training input samples.
         y : array-like, shape (n_samples,)
             The target values. An array of int.
-        
+
         Returns
         -------
         self : object
@@ -132,7 +128,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         optimizer = torch.optim.Adam(
             params=list(reduce(lambda a, b: a + b, [cube.params for cube in self.polytopes])),
             lr=lr)
-        
+
         # Run optimizer
         for epoch in range(epochs):
             inputs, labels = X, y
@@ -150,8 +146,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
                     print(f"Epoch: {epoch}, Accuracy: {acc}")
 
         return self
-    
-                    
+
     def predict_proba(self, X):
         # Check is fit had been called
         check_is_fitted(self)
