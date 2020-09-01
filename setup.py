@@ -8,11 +8,11 @@ def readme():
 
 setup(
     name="disjunctive-nn",
-    version="0.1.1",
+    version="0.1.2",
     description="PyTorch implementation of Disjunctive Normal Networks",
     long_description=readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/tsitsimis/neural-disjunctive-normal-networks",
+    url="https://github.com/tsitsimis/disjunctive-normal-networks",
     author="Theodore Tsitsimis",
     author_email="th.tsitsimis@gmail.com",
     license="BSD",
