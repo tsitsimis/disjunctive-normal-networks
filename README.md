@@ -104,34 +104,46 @@ In the above expression we replace boolean negation of a variable <img src="http
 The function <img src="https://render.githubusercontent.com/render/math?math=f(x)"> is then optimized with gradient descent.
 
 
-## Examples
-DNNs were tested on 2D synthetic datasets and compared to Decision Trees which is the closest classifier in terms of complexity and decision function.
+## Examples and benchmarking
+DNNs were tested on 2D synthetic datasets and compared to Decision Trees which is the closest classifier in terms of complexity and shape of decision function. The point of this experiment is to illustrate the nature of decision boundaries of the 2 classifiers. This should be taken with a grain of salt, as the performance does not necessarily carry over to real datasets.
 
-The goal of these experiments is to show and compare how well the models can memorize (overfit) the training set.
+The accuracy corresponds to the test set after splitting the dataset in train and test set. DNN parameters (N: number of polytopes, M: number of half-spaces per polytope) are set through experimentation.
 
-DNN parameters are also shown (N: number of polytopes, M: number of half-spaces per polytope).
+<table>
+    <th>Dataset</th>
+    <th>DNN</th>
+    <th>DT</th>
+    <th>DNN Parameters</th>
+    <tr>
+        <td>Moons</td>
+        <td><b>0.98</b></td>
+        <td>0.96</td>
+        <td>N=2, M=4</td>
+    </tr>
+    <tr>
+        <td>Circles</td>
+        <td><b>0.98</b></td>
+        <td>0.96</td>
+        <td>N=1, M=4</td>
+    </tr>
+    <tr>
+        <td>Spirals</td>
+        <td><b>0.99</b></td>
+        <td>0.96</td>
+        <td>N=20, M=10</td>
+    </tr>
+</table>
+
+The below plots show the 2 models' decision function when trained on the whole dataset. The purpose is to show how well the models memorize (overfit) the training set.
 
 ### Moons
-<img src="./assets/moons_dnn.png" height=200/>
-<img src="./assets/moons_dt.png" height=200/>
-
-- DNN: N=2, M=4
-- DT: depth=9
+<img src="./assets/moons-experiments.png" width="100%"/>
 
 ### Circles
-<img src="./assets/circles_dnn.png" height=200/>
-<img src="./assets/circles_dt.png" height=200/>
-
-- DNN: N=1, M=4
-- DT: depth=7
+<img src="./assets/circles-experiments.png" width="100%"/>
 
 ### Spirals
-<img src="./assets/spirals_dnn.png" height=200/>
-<img src="./assets/spirals_dt.png" height=200/>
+<img src="./assets/spirals-experiments.png" width="100%"/>
 
-- DNN: N=20, M=10
-- DT: depth=18
 
-The overall observation is that DNNs provide much **smoother decision boundaries** without overfitting the data.
-
-The main drawback of DNNs is that the number of polytopes and the number of half-spaces per polytope must be predefined. In the above experiments they were set through experimentation to maximize accuracy on the training set.
+The overall observation is that DNNs provide much **smoother decision boundaries** and overfit less on training data.
