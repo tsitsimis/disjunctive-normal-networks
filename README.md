@@ -3,15 +3,16 @@
 
 
 # Disjunctive Normal Networks
-A Disjunctive Normal Network (DNN) is a special type of Neural Network used for binary classification. It uses intersected convex polytopes (hyper-dimensional polygons) to cover the feature space of positive samples. This allows DNNs to find rules in the form of constraining inequalities in feature space that resemble the rules present in Decision Trees (DTs).
+A Disjunctive Normal Network (DNN) is a special type of Neural Network used for binary classification. It uses intersected convex polytopes (hyperdimensional polygons) to cover the feature space of positive samples. This allows DNNs to find rules in the form of constraining inequalities in feature space that resemble the rules present in Decision Trees (DTs).
 
  In 2D it can be seen as multiple convex polygons spread on the plane enclosing all positive samples while leaving negative samples outside. 
 
 Based on paper:
-> Mehdi Sajjadi, Mojtaba Seyedhosseini, Tolga Tasdizen. Disjunctive Normal Networks. In 2018 Neurocomputing [\[pdf\]](https://arxiv.org/pdf/1412.8534.pdf)
+> Mehdi Sajjadi, Mojtaba Seyedhosseini, Tolga Tasdizen (2014). Disjunctive Normal Networks. CoRR, abs/1412.8534.
+ [\[pdf\]](https://arxiv.org/pdf/1412.8534.pdf)
 
 
-## How to use disjuntive-nn
+## How to use disjunctive-nn
 The disjuntive-nn package inherits from scikit-learn classes, and thus drops in neatly next to other sklearn transformers with an identical calling API.
 
 ```python
@@ -64,11 +65,13 @@ Overall the main advantages of a DNN over a DT are:
 
 ## Theoretical background
 ### Disjunctive Normal Form
-A Decision Tree segments the space in hypercubes by drawing axis-aligned lines. Each hyperbox encloses the points of one class to form the final decision function of the tree
+A Decision Tree segments the space in hypercubes by drawing axis-aligned hyperplanes. Each hyperbox encloses the points of one class to form the final decision function of the tree
 
-<img src="./assets/decision-tree.png" height=200/>
+<img src="./assets/decision-tree-boxes.jpg" height=200/>
 
 In the case of binary classification, the interior of the hypercubes enclosing the positive samples can be seen as the subspace where a boolean function becomes True (1) and ouside is False (0).
+
+<img src="./assets/decision-tree.png" height=200/>
 
 For the tree of the above picture the associated boolean function (1 for positive class <img src="https://render.githubusercontent.com/render/math?math=c_%2B">, 0 for class <img src="https://render.githubusercontent.com/render/math?math=c_-">) is
 
@@ -93,7 +96,7 @@ A half-space can be expressed as a sigmoid function of a linear combination of t
 
 <img src="https://render.githubusercontent.com/render/math?math=P_i = \displaystyle \product_{j=1}^{M} h_{ij}(x)">
 
-Finally, the union of N polytopes forms the decision function <img src="https://render.githubusercontent.com/render/math?math=f(x)">. To calculate the union we could just add all the <img src="https://render.githubusercontent.com/render/math?math=P_i(x)"> together but in overlapping areas the result would be greater than 1. To tackle this, using the DeMorgan rule <img src="https://render.githubusercontent.com/render/math?math=A \cup B = (A^\prime \cap B^\prime)^\prime"> the sum can be transformed to the product
+Finally, the union of N polytopes forms the decision function <img src="https://render.githubusercontent.com/render/math?math=f(x)">. To calculate the union we could just add all the <img src="https://render.githubusercontent.com/render/math?math=P_i(x)"> together but in overlapping areas the result would be greater than 1. To tackle this, using the [DeMorgan](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) rule <img src="https://render.githubusercontent.com/render/math?math=A \cup B = (A^\prime \cap B^\prime)^\prime"> the sum can be transformed to the product
 
 <img src="https://render.githubusercontent.com/render/math?math=f(x) = 1 - \displaystyle \product_{i=1}^{n}(\product_{j=1}^{M} 1 - h_{ij}(x))">
 
