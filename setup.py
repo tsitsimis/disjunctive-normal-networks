@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name="disjunctive-nn",
-    version="0.1.2",
+    version="0.1.3",
     description="PyTorch implementation of Disjunctive Normal Networks",
     long_description=readme(),
     long_description_content_type="text/markdown",
