@@ -33,6 +33,9 @@ class Polytope():
         self.params = [self.cuts, self.w]
 
     def value(self, X):
+        if type(X) == np.ndarray:
+            X = torch.from_numpy(X.astype(np.float32))
+
         polytope = torch.matmul(X, self.w) + self.cuts
         polytope = sigmoid(polytope)
         polytope = torch.prod(polytope, axis=1)  # intersection of half-spaces
