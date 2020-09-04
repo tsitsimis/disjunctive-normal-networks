@@ -56,7 +56,7 @@ A Disjunctive Normal Network can be seen as an [Oblique Decision Tree](https://w
 
 Oblique Decision Trees are a generalization of regular Decision Trees with rules that are multivariate resulting in dividing the feature space with boundaries non-parallel to the axes.
 
-This allows DNNs to be much more interpretable (inequality rules on linear combination of features) and be trained with backpropagation.
+This allows DNNs to be much more interpretable (inequality rules on linear combination of features) than a vanilla Neural Network and to be trained with backpropagation.
 
 Overall the main advantages of a DNN over a DT are:
 - Uses polytopes instead of hyercubes
@@ -98,7 +98,7 @@ A half-space can be expressed as a sigmoid function of a linear combination of t
 
 Finally, the union of N polytopes forms the decision function <img src="https://render.githubusercontent.com/render/math?math=f(x)">. To calculate the union we could just add all the <img src="https://render.githubusercontent.com/render/math?math=P_i(x)"> together but in overlapping areas the result would be greater than 1. To tackle this, using the [DeMorgan](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) rule <img src="https://render.githubusercontent.com/render/math?math=A \cup B = (A^\prime \cap B^\prime)^\prime"> the sum can be transformed to the product
 
-<img src="https://render.githubusercontent.com/render/math?math=f(x) = 1 - \displaystyle \product_{i=1}^{n}(\product_{j=1}^{M} 1 - h_{ij}(x))">
+<img src="https://render.githubusercontent.com/render/math?math=f(x) = 1 - \displaystyle \product_{i=1}^{N}(\product_{j=1}^{M} 1 - h_{ij}(x))">
 
 In the above expression we replace boolean negation of a variable <img src="https://render.githubusercontent.com/render/math?math=A"> with <img src="https://render.githubusercontent.com/render/math?math=1-A"> and the boolean AND with a product. 
 
