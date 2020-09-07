@@ -87,15 +87,15 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         """
 
         result = 1.0
-        for cube in self.polytopes:
-            result *= 1.0 - cube.value(X)
+        for polytope in self.polytopes:
+            result *= 1.0 - polytope.value(X)
 
         result = 1 - result
         return torch.stack([1 - result, result]).T
 
     def fit(self, X, y, epochs=1000, lr=0.01, batch_size=100, verbose=False):
         """
-        Fit Neural Hyoercube Network with Adam optimizer and Cross-Entropy loss
+        Fit Disjunctive Normal Network with Adam optimizer and Cross-Entropy loss
 
         Parameters
         ----------
@@ -118,7 +118,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         # Store the classes seen during fit
         self.classes_ = unique_labels(y)
 
-        # Initialize hyper-cubes for the first time
+        # Initialize ppolytopes for the first time
         dim = X.shape[1]
         if self.polytopes is None:
             self.polytopes = [Polytope(dim, self.m) for c in range(self.n_polytopes)]
@@ -126,7 +126,7 @@ class DisjunctiveNormalNetwork(BaseEstimator, ClassifierMixin):
         # Define loss function and optimizer
         loss_function = torch.nn.CrossEntropyLoss()
         optimizer = torch.optim.Adam(
-            params=list(reduce(lambda a, b: a + b, [cube.params for cube in self.polytopes])),
+            params=list(reduce(lambda a, b: a + b, [polytope.params for polytope in self.polytopes])),
             lr=lr)
 
         # Run optimizer
