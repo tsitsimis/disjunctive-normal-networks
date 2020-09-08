@@ -1,9 +1,9 @@
 from functools import reduce
 import sys
 
-sys.path.append("../")
+sys.path.append("disjunctive_nn/")
 
-from disjunctive_nn import DisjunctiveNormalNetwork
+from dnn_ import DisjunctiveNormalNetwork
 from sklearn import datasets
 
 
