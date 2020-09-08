@@ -1,4 +1,7 @@
 from functools import reduce
+import sys
+
+sys.path.append("../")
 
 from disjunctive_nn import DisjunctiveNormalNetwork
 from sklearn import datasets
