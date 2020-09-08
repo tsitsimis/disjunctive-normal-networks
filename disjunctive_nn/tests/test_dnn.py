@@ -19,4 +19,4 @@ def test_fit():
     dnn.fit(X, y, epochs=5000, lr=0.01)
 
     assert (len(dnn.polytopes) == n_polytopes) \
-            and reduce(lambda a, b: a and b, [polytope.m == m for polytope in dnn.polytopes])
+        and reduce(lambda a, b: a and b, [polytope.m == m for polytope in dnn.polytopes])
