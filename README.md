@@ -4,6 +4,8 @@
 
 
 # Disjunctive Normal Networks
+![](./assets/polytopes-partition.png)
+
 A Disjunctive Normal Network (DNN) is a special type of Neural Network used for binary classification. It uses intersected convex polytopes (hyperdimensional polygons) to cover the feature space of positive samples. This allows DNNs to find rules in the form of constraining inequalities in feature space that resemble the rules present in Decision Trees (DTs).
 
  In 2D it can be seen as multiple convex polygons spread on the plane enclosing all positive samples while leaving negative samples outside. 
